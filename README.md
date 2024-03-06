@@ -1,1 +1,1 @@
-# vk-test-task
+# test-task
