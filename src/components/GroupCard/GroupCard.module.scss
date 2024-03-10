@@ -1,0 +1,102 @@
+@mixin shadow {
+	box-shadow: var(--base-shadow);
+}
+
+.container {
+	width: 100%;
+	min-height: 150px;
+	background-color: var(--element-color);
+	border-radius: 16px;
+	@include shadow();
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0 20px 0;
+	position: relative;
+	overflow: hidden;
+}
+
+.avatar {
+	width: 100px;
+	height: 100px;
+	background-color: var(--text-color);
+	border-radius: 50%;
+	@include shadow();
+	cursor: pointer;
+	scale: 1;
+	transition: scale 0.3s ease-in;
+	&:hover {
+		scale: 1.05;
+	}
+}
+
+.no_avatar {
+	background-image: url('../../assets/people-svgrepo-com.svg');
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.info {
+	min-height: 75px;
+	margin-left: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+p {
+	padding: 0;
+	margin: 0;
+}
+
+.name {
+	font-family: 'PT-Sans-Narrow-Bold';
+	color: var(--text-color);
+	font-size: 25px;
+	letter-spacing: 1px;
+}
+
+.text {
+	padding: 0;
+	margin: 0;
+	font-family: 'PT-Sans-Narrow-Regular';
+	color: var(--text-color);
+	font-size: 15px;
+	.span {
+		cursor: pointer;
+		color: var(--span-color);
+	}
+}
+
+.text_width {
+	max-width: 100px;
+}
+
+.friends {
+	margin-left: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 75px;
+	flex-direction: column;
+}
+
+.button {
+	margin: 10px 0 0 0;
+	padding: 0;
+	width: 75px;
+	font-family: 'PT-Sans-Narrow-Regular';
+	color: var(--text-color);
+	font-size: 15px;
+	height: 25px;
+	background-color: transparent;
+	border: 1px solid var(--text-color);
+	border-radius: 12px;
+	cursor: pointer;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+	&:hover {
+		opacity: 0.7;
+	}
+}

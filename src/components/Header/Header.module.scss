@@ -1,0 +1,42 @@
+.header {
+	margin-top: 20px;
+	width: 100%;
+	background-color: var(--element-color);
+	min-height: 30px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	border-radius: 12px;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+}
+
+.link {
+	text-decoration: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	cursor: pointer;
+}
+
+.icon {
+	width: 40px;
+	height: 40px;
+	margin-right: 20px;
+	background-color: var(--icon-color);
+	background-position: center;
+	background-image: url('../../assets/people-svgrepo-com.svg');
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	box-shadow: var(--base-shadow);
+	overflow: hidden;
+}
+
+.text {
+	margin: 0;
+	padding: 0;
+	font-family: 'PT-Sans-Narrow-Bold';
+	color: var(--text-color);
+	font-size: 30px;
+	letter-spacing: 1px;
+}
