@@ -18,9 +18,9 @@ export interface GetGroupsResponse {
 }
 
 export interface Filter {
-	closed: string | null;
-	friends: string | null;
-	avatar_color: string[];
+	closed?: string | null;
+	friends?: string | null;
+	avatar_color?: string[];
 }
 
 export interface IFilter {
