@@ -3,7 +3,7 @@
 }
 
 .container {
-	width: 100%;
+	width: 500px;
 	min-height: 150px;
 	background-color: var(--element-color);
 	border-radius: 16px;
@@ -66,6 +66,11 @@ p {
 	.span {
 		cursor: pointer;
 		color: var(--span-color);
+		opacity: 1;
+		transition: opacity 0.3s ease;
+		&:hover {
+			opacity: 0.7;
+		}
 	}
 }
 
@@ -95,7 +100,7 @@ p {
 	border-radius: 12px;
 	cursor: pointer;
 	opacity: 1;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.2s ease;
 	&:hover {
 		opacity: 0.7;
 	}

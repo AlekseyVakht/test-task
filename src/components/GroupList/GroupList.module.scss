@@ -1,5 +1,5 @@
 .container {
-	width: 92%;
+	width: 100%;
 	margin: 20px auto;
 }
 
@@ -9,8 +9,8 @@
 	margin: 0;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	gap: 20px;
-	justify-items: stretch;
+	row-gap: 20px;
+	justify-items: center;
 	width: 100%;
 }
 

@@ -1,7 +1,11 @@
 import axios from 'axios';
 import queryString from 'query-string';
+import { GetGroupsResponse, Filter } from './interfaces.ts';
+import filter from './filter.ts';
 
-const fetchGroups = async params => {
+type FetchFn = (params: string) => Promise<GetGroupsResponse>;
+
+const fetchGroups: FetchFn = async (params: string) => {
 	await new Promise(resolve => setTimeout(resolve, 1000));
 	return axios
 		.get(`/groups.json?${params}`, {
@@ -11,14 +15,11 @@ const fetchGroups = async params => {
 			if (!res.data.data || res.data.result !== 1 || res.data.data.length === 0) {
 				return Promise.reject(new Error(`Ошибка загрузки данных`));
 			}
-			const filter = queryString.parse(params);
-			console.log(
-				res.data.data.filter(
-					item =>
-						filter.closed?.includes(item.closed) &&
-						filter.avatar_color?.includes(item.avatar_color),
-				),
-			);
+			if (params) {
+				const filterParam: Filter = queryString.parse(params);
+				res.data.data = filter(filterParam, res.data.data);
+			}
+
 			return res.data;
 		})
 		.catch(err => {

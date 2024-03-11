@@ -10,8 +10,9 @@ import fetchGroups from '../../utils/Api.ts';
 import Header from '../Header/Header.tsx';
 import Main from '../Main/Main.tsx';
 import Footer from '../Footer/Footer.tsx';
+import Filters from '../Filters/Filters.tsx';
 import Preloader from '../Preloader/Preloader.tsx';
-import Error from '../Error/Error.tsx';
+import { Error } from '../Error/Error.tsx';
 import styles from './App.module.scss';
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
 		queryKey: ['data', query],
 		queryFn: () => fetchGroups(query),
 		refetchOnWindowFocus: false,
-		staleTime: 500,
+		gcTime: 0,
 	});
 
 	useEffect(() => {
@@ -34,6 +35,7 @@ const App = () => {
 	return (
 		<div className={styles.root}>
 			<Header />
+			<Filters />
 			{isLoading ? <Preloader /> : !isError ? <Main /> : <Error />}
 			<Footer />
 		</div>

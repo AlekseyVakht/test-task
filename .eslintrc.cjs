@@ -38,5 +38,8 @@ module.exports = {
 		'no-nested-ternary': 'off',
 		'react/no-array-index-key': 'off',
 		'react/prop-types': 'off',
+		'no-prototype-builtins': 'off',
+		'no-return-assign': 'off',
+		'dot-notation': 'off',
 	},
 };

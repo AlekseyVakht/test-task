@@ -1,7 +1,15 @@
+import { FC } from 'react';
 import cn from 'classnames';
 import styles from './FriendsPopup.module.scss';
+import { User } from '../../utils/interfaces.ts';
 
-const FriendsPopup = ({ isOpened, friends, click }) => {
+interface Popup {
+	friends: User[];
+	isOpened: boolean;
+	click: () => void;
+}
+
+const FriendsPopup: FC<Popup> = ({ isOpened, friends, click }) => {
 	const popupClassName = cn(styles.popup_opened, { [styles.animated]: isOpened });
 
 	return (

@@ -2,10 +2,15 @@ import { FC, useState } from 'react';
 import cn from 'classnames';
 import FriendsPopup from '../FriendsPopup/FriendsPopup.tsx';
 import styles from './GroupCard.module.scss';
+import { Group, User } from '../../utils/interfaces.ts';
 
-const RenderFriendsMessage: FC = ({ friends }) => {
+type RenderFriendsMessageProps = {
+	friends: User[];
+};
+
+const RenderFriendsMessage: FC<RenderFriendsMessageProps> = ({ friends }) => {
 	const [opened, setIsOpen] = useState(false);
-	const messageHandler = (num: number, txt: string) => {
+	const messageHandler = (num: number, txt: string[]) => {
 		const cases = [2, 0, 1, 1, 1, 2];
 		return txt[num % 100 > 4 && num % 100 < 20 ? 2 : cases[num % 10 < 5 ? num % 10 : 5]];
 	};
@@ -33,10 +38,8 @@ const RenderNoFriends: FC = () => {
 	);
 };
 
-const GroupCard: FC = ({ group }) => {
-	const { name, members_count, closed, avatar_color, friends } = group;
+const GroupCard: FC<Group> = ({ name, members_count, closed, avatar_color, friends }) => {
 	const avatarClassName = cn(styles.avatar, { [styles.no_avatar]: !avatar_color });
-
 	return (
 		<div className={styles.container}>
 			<div className={avatarClassName} style={{ backgroundColor: avatar_color }} />

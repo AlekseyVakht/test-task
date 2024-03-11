@@ -16,3 +16,19 @@ export interface GetGroupsResponse {
 	result: 1 | 0;
 	data?: Group[];
 }
+
+export interface Filter {
+	closed: string | null;
+	friends: string | null;
+	avatar_color: string[];
+}
+
+export interface IFilter {
+	filters?: { text: string; value: string }[];
+	filter?: { text: string; value: string };
+	group?: string;
+	filtersLabel?: string;
+	text?: string;
+	action?: string;
+	value?: string;
+}
