@@ -65,6 +65,7 @@ const useGroupStore = create<Store>()(
 	),
 );
 
+export const data = () => useGroupStore(state => state.data);
 export const setGroups = () => useGroupStore(state => state.setGroups);
 export const useGroups = () => useGroupStore(state => state.data);
 export const setFilters = () => useGroupStore(state => state.setFilters);
