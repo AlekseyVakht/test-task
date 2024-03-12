@@ -1,0 +1,19 @@
+body {
+	background-color: var(--background-color);
+}
+
+.root {
+	margin: 0 auto;
+	width: 1280px;
+}
+
+:root {
+	--background-color: #353434;
+	--element-color: #585555;
+	--text-color: silver;
+	--icon-color: #07f;
+	--span-color: #1e90ff;
+	--base-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	--regular-font: 'PT-Sans-Narrow-Regular';
+	--bold-font: 'PT-Sans-Narrow-Bold';
+}

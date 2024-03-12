@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+	margin: 0 auto;
+	height: 200px;
+	justify-content: center;
+	align-items: center;
+}
+
+.text {
+	margin: 0;
+	padding: 0;
+	color: var(--text-color);
+	font-family: var(--bold-font);
+	font-size: 35px;
+}

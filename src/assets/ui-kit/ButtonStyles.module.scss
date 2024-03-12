@@ -1,0 +1,29 @@
+.button {
+	box-sizing: content-box;
+	margin: 0 10px;
+	padding: 0;
+	width: 75px;
+	font-family: 'PT-Sans-Narrow-Regular';
+	color: var(--text-color);
+	font-size: 15px;
+	height: 25px;
+	background-color: transparent;
+	border: 1px solid var(--text-color);
+	border-radius: 12px;
+	cursor: pointer;
+	opacity: 1;
+	transition: opacity 0.3s ease;
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.button_disabled {
+	opacity: 0.4;
+	pointer-events: none;
+}
+
+.active {
+	background-color: var(--text-color);
+	color: var(--background-color);
+}

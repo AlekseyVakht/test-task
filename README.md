@@ -1,30 +1,16 @@
-# React + TypeScript + Vite
+# Профильное задание
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Сообщества - социальная сеть для тех, кто любит объединяться по интересам.
 
-Currently, two official plugins are available:
+**Stack:** HTML, JS, TS, React, Zustand, React Query, Axios, SCSS modules, Husky, eslint, Lint Staged, Query String  
+Ссылка на проект: https://alekseyvakht.github.io/test-task/  
+Проделанная работа:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Реализация запросов осуществляется через axios путем мока данных из groups.json. Для реализации задержки в 1 секунду в соответствии с таском, создан Promise с методом setTimeout, resolve наступает через 1 секунду. Таким образом обеспечивается задержка между каждым обращением к backend.
+   Так же для реализации задержки и её визуального отслеживания, было отключено кеширование данных через React Query. Таким образом при каждом изменении фильтров и их применении, мыбудем получать новый запрос с выбранными фильтрами.
+2. Для реализации фейковых запросов URL query string была использована библиотека QueryString, таким образом выбранные фильтры преобразовываются в строку, при изменении которой, осщуествляется запрос к backend. В Network мы имеем картину схожую с реальной фильтрацией данных на backend через query string запросы.
+3. Для организации state management был выбран Zustand.
+4. Фильтрация данных производится во время запроса на backend. Полученные фильтры в виде строки парсятся в исходный объект, и далее фильтрация осуществляется через функцию, которая в свою очередь возвращает результат фильтрации по всем нужным параметрам с учетом их отсутсвия при выборе фильтров.
+5. Осуществлена обработка ошибок при указанных в таске случаях (для result !== 1, при отсутствии data или если data = []). Все ошибки обрабатываются, для пользователя выводится информационное сообщение о наличии ошибки при обработке данных.
+6. Для линтинга и отслеживания ошибок при написании кода применен стек ESLint-Prettier-Husky-LintStaged.
+7. CSS составляющая приложения реализована через SCSS modules.
