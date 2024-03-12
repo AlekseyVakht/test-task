@@ -1,9 +1,15 @@
+
 # Профильное задание
 
 ## Сообщества - социальная сеть для тех, кто любит объединяться по интересам.
 
 **Stack:** HTML, JS, TS, React, Zustand, React Query, Axios, SCSS modules, Husky, eslint, Lint Staged, Query String  
 Ссылка на проект: https://alekseyvakht.github.io/test-task/  
+Для запуска приложения:
+1. Склонировать репозиторий `git clone git@github.com:AlekseyVakht/test-task.git`
+2. В папке со склонированным репозиторием `npm i install`
+3. Для запуска приложения `npm run dev`
+   
 Проделанная работа:
 
 1. Реализация запросов осуществляется через axios путем мока данных из groups.json. Для реализации задержки в 1 секунду в соответствии с таском, создан Promise с методом setTimeout, resolve наступает через 1 секунду. Таким образом обеспечивается задержка между каждым обращением к backend.
