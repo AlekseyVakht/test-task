@@ -1,14 +1,14 @@
 import axios from 'axios';
 import queryString from 'query-string';
 import { GetGroupsResponse, Filter } from './interfaces.ts';
-import filter from './filter.ts';
+import filterByParams from './filterByParams.ts';
 
 type FetchFn = (params: string) => Promise<GetGroupsResponse>;
 
 const fetchGroups: FetchFn = async (params: string) => {
 	await new Promise(resolve => setTimeout(resolve, 1000));
 	return axios
-		.get(`/groups.json?${params}`, {
+		.get(`test-task/groups.json?${params}`, {
 			headers: { 'Cache-Control': 'no-cache', 'Content-Type': 'application/json' },
 		})
 		.then(res => {
@@ -17,7 +17,7 @@ const fetchGroups: FetchFn = async (params: string) => {
 			}
 			if (params) {
 				const filterParam: Filter = queryString.parse(params);
-				res.data.data = filter(filterParam, res.data.data);
+				res.data.data = filterByParams(filterParam, res.data.data);
 			}
 
 			return res.data;

@@ -1,7 +1,7 @@
 import data from '../../public/groups.json';
 import colorPicker from './colorPicker.ts';
 
-const FILTERS = {
+const BASE_FILTERS = {
 	closed: [
 		{ text: 'все', value: 'all' },
 		{ text: 'закрытые', value: 'closed' },
@@ -14,4 +14,4 @@ const FILTERS = {
 	avatar_color: [{ text: 'любой', value: 'all' }].concat(colorPicker(data.data)),
 };
 
-export default FILTERS;
+export default BASE_FILTERS;

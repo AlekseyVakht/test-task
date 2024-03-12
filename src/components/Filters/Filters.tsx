@@ -1,66 +1,11 @@
 import { FC } from 'react';
-import queryString from 'query-string';
-import cn from 'classnames';
-import FILTERS from '../../utils/filters.ts';
+import BASE_FILTERS from '../../utils/base_filters.ts';
 import styles from './Filters.module.scss';
-import { IFilter, Filter } from '../../utils/interfaces.ts';
+import { IFilter } from '../../utils/interfaces.ts';
 
-import useGroupStore, {
-	setFilters,
-	clearFilters,
-	setQueryParams,
-	selectedFilters,
-	setColorFilter,
-} from '../../stores/groupStore.ts';
-
-const ControlButton: FC<IFilter> = ({ text, action }) => {
-	const reset = clearFilters();
-	const selected = useGroupStore(state => state.selectedFilters);
-	const setParams = setQueryParams();
-	const handleClick = () => {
-		setParams(queryString.stringify(selected));
-	};
-	return (
-		<button
-			type="button"
-			className={styles.button}
-			onClick={() => (action === 'reset' ? reset() : handleClick())}
-		>
-			{text}
-		</button>
-	);
-};
-
-const FilterColorButton: FC<IFilter> = ({ text, value }) => {
-	const selected = selectedFilters();
-	const setColors = setColorFilter();
-	const isActive = selected.avatar_color?.some(i => i === value);
-	const handleClick = () => {
-		setColors(value!);
-	};
-	const buttonClassName = cn(styles.button, { [styles.active]: isActive });
-	return (
-		<button type="button" className={buttonClassName} onClick={handleClick}>
-			{text}
-		</button>
-	);
-};
-
-const FilterButton: FC<IFilter> = ({ text, value, group }) => {
-	const selected = selectedFilters();
-	const pushFilter = setFilters();
-	const isActive = selected[group as keyof Filter] === value;
-	const handleClick = () => {
-		pushFilter(value!, group!);
-	};
-
-	const buttonClassName = cn(styles.button, { [styles.active]: isActive });
-	return (
-		<button type="button" className={buttonClassName} onClick={handleClick}>
-			{text}
-		</button>
-	);
-};
+import FilterButton from '../../assets/ui-kit/FilterButton/FilterButton.tsx';
+import FilterColorButton from '../../assets/ui-kit/FilterColorButton/FilterColorButton.tsx';
+import ControlButton from '../../assets/ui-kit/ControlButton/ControlButton.tsx';
 
 const FiltersToRender: FC<IFilter> = ({ group, filter }) => {
 	return (
@@ -90,15 +35,19 @@ const Filters: FC = () => {
 		<section className={styles.filters}>
 			<div className={styles.container}>
 				<p className={styles.text}>Фильтры</p>
-				<FilterButtons filters={FILTERS.closed} group="closed" filtersLabel="По приватности: " />
 				<FilterButtons
-					filters={FILTERS.friends}
+					filters={BASE_FILTERS.closed}
+					group="closed"
+					filtersLabel="По приватности: "
+				/>
+				<FilterButtons
+					filters={BASE_FILTERS.friends}
 					group="friends"
 					filtersLabel="По наличию друзей: "
 				/>
-				{FILTERS.avatar_color && (
+				{BASE_FILTERS.avatar_color && (
 					<FilterButtons
-						filters={FILTERS.avatar_color}
+						filters={BASE_FILTERS.avatar_color}
 						group="avatar_color"
 						filtersLabel="По цвету аватарки: "
 					/>

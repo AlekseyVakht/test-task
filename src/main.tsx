@@ -13,7 +13,7 @@ const queryClient = new QueryClient({
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	<BrowserRouter>
+	<BrowserRouter basename="/test-task">
 		<QueryClientProvider client={queryClient}>
 			<App />
 		</QueryClientProvider>

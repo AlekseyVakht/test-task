@@ -1,6 +1,6 @@
 import { Group, Filter } from './interfaces.ts';
 
-export const filter = (params: Filter, data: Group[]) => {
+export const filterByParams = (params: Filter, data: Group[]) => {
 	const filteredData = data.filter(data => {
 		const filteredByPrivacy =
 			!params.closed ||
@@ -22,4 +22,4 @@ export const filter = (params: Filter, data: Group[]) => {
 	return filteredData;
 };
 
-export default filter;
+export default filterByParams;

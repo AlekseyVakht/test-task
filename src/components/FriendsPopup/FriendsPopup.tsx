@@ -19,8 +19,9 @@ const FriendsPopup: FC<Popup> = ({ isOpened, friends, click }) => {
 				<ul className={styles.list}>
 					{friends.map((friend, index) => (
 						<li key={index} className={styles.list_item}>
-							<p className={styles.text}>{friend.first_name}</p>
-							<p className={styles.text}>{friend.last_name}</p>
+							<p className={styles.text}>
+								{friend.first_name} {friend.last_name}
+							</p>
 						</li>
 					))}
 				</ul>

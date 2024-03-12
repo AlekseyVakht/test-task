@@ -1,5 +1,5 @@
 .container {
-	width: 100%;
+	width: 92%;
 	margin: 20px auto;
 }
 
@@ -9,12 +9,13 @@
 	margin: 0;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-	row-gap: 20px;
-	justify-items: center;
+	gap: 20px;
 	width: 100%;
+	justify-items: center;
 }
 
 .list_item {
 	display: flex;
 	box-sizing: content-box;
+	width: 530px;
 }

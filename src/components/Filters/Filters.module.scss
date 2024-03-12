@@ -55,6 +55,11 @@
 	}
 }
 
+.button_disabled {
+	opacity: 0.4;
+	pointer-events: none;
+}
+
 .control_btns {
 	display: flex;
 	justify-content: space-between;

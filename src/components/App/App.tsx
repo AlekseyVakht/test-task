@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import useGroupStore, { setGroups } from '../../stores/groupStore.ts';
+import useGroupStore, { setGroups, setIsLoading } from '../../stores/groupStore.ts';
 import { GetGroupsResponse } from '../../utils/interfaces.ts';
 
 // API
-import fetchGroups from '../../utils/Api.ts';
+import fetchGroups from '../../utils/api.ts';
 
 // Components
 import Header from '../Header/Header.tsx';
@@ -16,6 +16,7 @@ import { Error } from '../Error/Error.tsx';
 import styles from './App.module.scss';
 
 const App = () => {
+	const setLoading = setIsLoading();
 	const putGroups = setGroups();
 	const query = useGroupStore(state => state.queryParams);
 
@@ -27,10 +28,12 @@ const App = () => {
 	});
 
 	useEffect(() => {
+		if (isLoading) setLoading(true);
 		if (isSuccess && data.result === 1) {
 			putGroups(data.data || []);
+			setLoading(false);
 		}
-	}, [data, putGroups, isSuccess]);
+	}, [data, putGroups, isSuccess, isLoading, setLoading]);
 
 	return (
 		<div className={styles.root}>
