@@ -7,7 +7,7 @@
 Ссылка на проект: https://alekseyvakht.github.io/test-task/  
 Для запуска приложения:
 1. Склонировать репозиторий `git clone git@github.com:AlekseyVakht/test-task.git`
-2. В папке со склонированным репозиторием `npm i install`
+2. В папке со склонированным репозиторием `npm install`
 3. Для запуска приложения `npm run dev`
    
 Проделанная работа:
