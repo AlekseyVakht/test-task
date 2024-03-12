@@ -4,7 +4,7 @@ import useGroupStore, { setGroups, setIsLoading } from '../../stores/groupStore.
 import { GetGroupsResponse } from '../../utils/interfaces.ts';
 
 // API
-import fetchGroups from '../../utils/api.ts';
+import fetchGroups from '../../utils/Api.ts';
 
 // Components
 import Header from '../Header/Header.tsx';
