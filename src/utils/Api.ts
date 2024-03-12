@@ -8,7 +8,7 @@ type FetchFn = (params: string) => Promise<GetGroupsResponse>;
 const fetchGroups: FetchFn = async (params: string) => {
 	await new Promise(resolve => setTimeout(resolve, 1000));
 	return axios
-		.get(`test-task/groups.json?${params}`, {
+		.get(`groups.json?${params}`, {
 			headers: { 'Cache-Control': 'no-cache', 'Content-Type': 'application/json' },
 		})
 		.then(res => {

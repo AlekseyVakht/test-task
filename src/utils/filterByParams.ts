@@ -13,6 +13,7 @@ export const filterByParams = (params: Filter, data: Group[]) => {
 			(params.friends.includes('hasfriends') && data.friends);
 		const filteredByColor =
 			!params.avatar_color ||
+			(params.avatar_color.includes('all') && data) ||
 			params.avatar_color.includes(data.avatar_color!) ||
 			(params.avatar_color.includes('noimage') && !data.hasOwnProperty('avatar_color'));
 
